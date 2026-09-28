@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>HOCES POLFA · Invitación Spider-Verse</title>
+  <title>ERAK Y ARBAK · Invitación Spider-Verse</title>
   <style>
     :root {
-      --spidey-red: #e61c24;
-      --spidey-blue: #0253a3;
-      --spidey-dark-blue: #09122b;
-      --spidey-yellow: #fce100;
-      --spidey-black: #0b0c10;
-      --spidey-cyan: #00d2ff;
+      --spidey-red: #ff003c;
+      --spidey-blue: #0055ff;
+      --spidey-dark-blue: #050a21;
+      --spidey-yellow: #ffe600;
+      --spidey-black: #08090d;
+      --spidey-cyan: #00f0ff;
     }
 
     * {
@@ -30,13 +30,13 @@
       overflow-x: hidden;
     }
 
-    /* Fondo con entramado estilo cómic y destellos */
+    /* Fondo con entramado estilo Spider-Verse y comic dots */
     body::before {
       content: "";
       position: fixed;
       inset: 0;
       z-index: -2;
-      background: radial-gradient(circle at 50% 20%, #1a3375, var(--spidey-dark-blue) 80%);
+      background: radial-gradient(circle at 50% 15%, #102a7c, var(--spidey-dark-blue) 85%);
     }
 
     body::after {
@@ -44,12 +44,12 @@
       position: fixed;
       inset: 0;
       z-index: -1;
-      opacity: 0.15;
+      opacity: 0.22;
       background-image: 
-        radial-gradient(var(--spidey-cyan) 1px, transparent 0),
-        radial-gradient(var(--spidey-red) 1px, transparent 0);
-      background-size: 20px 20px;
-      background-position: 0 0, 10px 10px;
+        radial-gradient(var(--spidey-cyan) 1.5px, transparent 0),
+        radial-gradient(var(--spidey-red) 1.5px, transparent 0);
+      background-size: 24px 24px;
+      background-position: 0 0, 12px 12px;
     }
 
     .container {
@@ -67,122 +67,134 @@
       justify-content: center;
       text-align: center;
       position: relative;
-      padding: 20px 0;
+      padding: 30px 0;
     }
 
     .web-overlay {
       position: absolute;
       inset: 0;
       pointer-events: none;
-      opacity: 0.25;
+      opacity: 0.35;
       background: 
-        repeating-radial-gradient(circle at 50% 0%, transparent 0 40px, #ffffff 41px 43px, transparent 44px 80px),
-        linear-gradient(45deg, transparent 49%, rgba(255, 255, 255, 0.4) 50%, transparent 51%);
+        repeating-radial-gradient(circle at 50% 20%, transparent 0 45px, rgba(255, 255, 255, 0.4) 46px 48px, transparent 49px 90px),
+        linear-gradient(60deg, transparent 49%, rgba(0, 240, 255, 0.3) 50%, transparent 51%),
+        linear-gradient(-60deg, transparent 49%, rgba(255, 0, 60, 0.3) 50%, transparent 51%);
     }
 
+    /* Máscara de Spider-Man animada */
     .spidey-icon {
-      width: 110px;
-      height: 110px;
-      margin-bottom: 15px;
-      filter: drop-shadow(0 0 12px var(--spidey-red));
-      animation: float 3s ease-in-out infinite;
+      width: 130px;
+      height: 130px;
+      margin-bottom: 10px;
+      filter: drop-shadow(0 0 18px var(--spidey-red)) drop-shadow(0 0 30px var(--spidey-blue));
+      animation: heroFloat 3.5s ease-in-out infinite alternate;
     }
 
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+    @keyframes heroFloat {
+      0% { transform: translateY(0) rotate(-2deg); }
+      100% { transform: translateY(-15px) rotate(2deg); }
     }
 
     .badge {
       display: inline-block;
       background: var(--spidey-yellow);
       color: var(--spidey-black);
-      padding: 8px 20px;
+      padding: 10px 24px;
       border-radius: 50px;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       letter-spacing: 2px;
-      box-shadow: 4px 4px 0 var(--spidey-red);
-      transform: rotate(-2deg);
+      border: 3px solid var(--spidey-black);
+      box-shadow: 5px 5px 0 var(--spidey-red);
+      transform: rotate(-3deg);
       text-transform: uppercase;
+      font-weight: bold;
     }
 
+    /* Título Glitch / Cómic */
     h1 {
-      font-size: clamp(50px, 13vw, 110px);
+      font-size: clamp(55px, 15vw, 120px);
       line-height: 0.85;
-      margin: 18px 0;
+      margin: 20px 0 10px;
       letter-spacing: -2px;
       text-transform: uppercase;
       color: #fff;
+      position: relative;
       text-shadow: 
-        5px 5px 0px var(--spidey-red),
-        10px 10px 0px var(--spidey-blue),
-        15px 15px 20px rgba(0,0,0,0.8);
+        6px 6px 0px var(--spidey-red),
+        -4px -4px 0px var(--spidey-cyan),
+        12px 12px 0px var(--spidey-black);
     }
 
     .subtitle {
-      font-size: clamp(18px, 4vw, 26px);
+      font-size: clamp(18px, 4vw, 28px);
       font-family: Arial, sans-serif;
       font-weight: 900;
-      color: #e0e0e0;
+      color: #fff;
+      background: rgba(0, 85, 255, 0.4);
+      padding: 8px 18px;
+      border-radius: 30px;
+      border: 2px solid var(--spidey-cyan);
+      display: inline-block;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
     }
 
-    /* CARDS */
+    /* TARJETAS CON BORDE ESTILO CÓMIC */
     .card {
-      background: linear-gradient(135deg, rgba(12, 25, 68, 0.95), rgba(5, 8, 29, 0.98));
-      border: 3px solid var(--spidey-red);
-      border-radius: 20px;
-      padding: 24px;
-      margin: 28px 0;
-      box-shadow: 0 0 20px rgba(230, 28, 36, 0.3), inset 0 0 15px rgba(2, 83, 163, 0.5);
+      background: linear-gradient(145deg, rgba(10, 20, 60, 0.95), rgba(4, 6, 20, 0.98));
+      border: 4px solid var(--spidey-red);
+      border-radius: 25px;
+      padding: 26px;
+      margin: 32px 0;
+      box-shadow: 0 0 30px rgba(255, 0, 60, 0.35), 8px 8px 0px var(--spidey-black);
       position: relative;
-      transition: transform 0.3s ease;
+      transition: all 0.3s ease;
     }
 
     .card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-5px) scale(1.01);
+      box-shadow: 0 0 40px rgba(0, 240, 255, 0.4), 12px 12px 0px var(--spidey-black);
     }
 
     .section-title {
-      font-size: clamp(26px, 6vw, 42px);
-      margin: 0 0 20px;
+      font-size: clamp(28px, 6vw, 45px);
+      margin: 0 0 22px;
       text-transform: uppercase;
       color: var(--spidey-yellow);
-      text-shadow: 3px 3px 0 var(--spidey-red);
+      text-shadow: 4px 4px 0 var(--spidey-red), 7px 7px 0 var(--spidey-black);
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
 
     .video {
       width: 100%;
-      border-radius: 15px;
-      border: 3px solid var(--spidey-cyan);
+      border-radius: 18px;
+      border: 4px solid var(--spidey-cyan);
       display: block;
       background: #000;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
     }
 
     /* BOTONES */
     button, .btn {
       border: 3px solid var(--spidey-black);
       border-radius: 50px;
-      padding: 14px 28px;
+      padding: 16px 32px;
       font-family: 'Impact', sans-serif;
-      font-size: 1.2rem;
-      letter-spacing: 1px;
+      font-size: 1.3rem;
+      letter-spacing: 1.5px;
       cursor: pointer;
       text-decoration: none;
       display: inline-block;
       margin: 8px 4px;
       transition: all 0.2s ease;
       text-transform: uppercase;
-      box-shadow: 4px 4px 0 var(--spidey-black);
+      box-shadow: 5px 5px 0 var(--spidey-black);
     }
 
     button:hover, .btn:hover {
-      transform: translate(-2px, -2px);
-      box-shadow: 6px 6px 0 var(--spidey-black);
+      transform: translate(-3px, -3px);
+      box-shadow: 8px 8px 0 var(--spidey-black);
     }
 
     button:active, .btn:active {
@@ -194,21 +206,22 @@
     .yellow { background: var(--spidey-yellow); color: var(--spidey-black); }
     .blue { background: var(--spidey-blue); color: #fff; }
 
-    /* GRID */
+    /* GRID & INFO */
     .grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
+      gap: 18px;
     }
 
     .info {
-      padding: 16px;
-      border: 2px solid var(--spidey-blue);
-      border-radius: 15px;
-      background: rgba(2, 83, 163, 0.2);
+      padding: 18px;
+      border: 3px solid var(--spidey-blue);
+      border-radius: 18px;
+      background: rgba(0, 85, 255, 0.15);
       font-family: Arial, sans-serif;
       position: relative;
       overflow: hidden;
+      box-shadow: inset 0 0 15px rgba(0, 240, 255, 0.2);
     }
 
     .info::before {
@@ -216,30 +229,30 @@
       position: absolute;
       right: -10px;
       bottom: -10px;
-      font-size: 50px;
-      opacity: 0.1;
+      font-size: 60px;
+      opacity: 0.12;
     }
 
     .info b {
       display: block;
       color: var(--spidey-yellow);
-      font-size: 0.9rem;
-      letter-spacing: 1.5px;
-      margin-bottom: 4px;
+      font-size: 0.95rem;
+      letter-spacing: 2px;
+      margin-bottom: 5px;
     }
 
     .info strong {
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       color: #fff;
     }
 
     /* TIMELINE */
     .timeline .item {
       display: grid;
-      grid-template-columns: 80px 1fr;
+      grid-template-columns: 85px 1fr;
       gap: 15px;
-      padding: 12px 0;
-      border-bottom: 1px dashed rgba(0, 210, 255, 0.4);
+      padding: 14px 0;
+      border-bottom: 2px dashed rgba(0, 240, 255, 0.3);
       align-items: center;
       font-family: Arial, sans-serif;
     }
@@ -247,15 +260,17 @@
     .time {
       font-family: 'Impact', sans-serif;
       color: var(--spidey-yellow);
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       background: var(--spidey-blue);
-      padding: 4px 8px;
-      border-radius: 8px;
+      padding: 6px 10px;
+      border-radius: 10px;
       text-align: center;
+      border: 2px solid var(--spidey-black);
+      box-shadow: 3px 3px 0 var(--spidey-black);
     }
 
     .desc {
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       font-weight: bold;
     }
 
@@ -264,61 +279,65 @@
       display: flex;
       justify-content: space-around;
       text-align: center;
-      margin-top: 15px;
-      background: rgba(0,0,0,0.4);
-      padding: 15px;
-      border-radius: 15px;
-      border: 1px solid var(--spidey-cyan);
+      margin-top: 20px;
+      background: rgba(0,0,0,0.6);
+      padding: 18px;
+      border-radius: 18px;
+      border: 2px solid var(--spidey-cyan);
+      box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
     }
 
     .cd-box span {
       display: block;
-      font-size: 2rem;
+      font-size: 2.2rem;
       color: var(--spidey-yellow);
+      text-shadow: 2px 2px 0 var(--spidey-red);
     }
 
     .cd-box label {
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       font-family: Arial, sans-serif;
-      color: #ccc;
+      color: #ddd;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
-    /* CÓMIC */
+    /* SECCIÓN CÓMIC */
     .comic {
       position: relative;
       background: #fff;
       color: var(--spidey-black);
-      border: 5px solid var(--spidey-black);
-      border-radius: 15px;
-      padding: 15px;
+      border: 6px solid var(--spidey-black);
+      border-radius: 20px;
+      padding: 18px;
       transform: rotate(-1deg);
-      box-shadow: 10px 10px 0 var(--spidey-red);
+      box-shadow: 12px 12px 0 var(--spidey-red);
     }
 
     .comic img {
       width: 100%;
-      border-radius: 8px;
-      border: 2px solid var(--spidey-black);
+      border-radius: 10px;
+      border: 3px solid var(--spidey-black);
       display: block;
     }
 
     .bubble {
       position: absolute;
-      top: -15px;
-      right: -10px;
+      top: -20px;
+      right: -15px;
       background: var(--spidey-yellow);
       color: var(--spidey-black);
-      border: 3px solid var(--spidey-black);
+      border: 4px solid var(--spidey-black);
       border-radius: 50%;
-      padding: 12px;
-      font-size: 1.1rem;
-      transform: rotate(12deg);
-      box-shadow: 3px 3px 0 var(--spidey-black);
+      padding: 15px;
+      font-size: 1.2rem;
+      transform: rotate(14deg);
+      box-shadow: 4px 4px 0 var(--spidey-black);
     }
 
     .rsvp {
       display: grid;
-      gap: 12px;
+      gap: 14px;
     }
 
     .rsvp button {
@@ -329,26 +348,27 @@
     .result {
       display: none;
       margin-top: 15px;
-      padding: 15px;
-      border-radius: 12px;
-      background: #0a8f50;
-      border: 2px solid #fff;
+      padding: 16px;
+      border-radius: 15px;
+      background: #00a859;
+      border: 3px solid #fff;
       text-align: center;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.5);
     }
 
     footer {
       text-align: center;
-      padding: 40px 15px;
-      color: #88a9ff;
+      padding: 45px 15px;
+      color: #a8c4ff;
       font-family: Arial, sans-serif;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
     }
 
     @media (max-width: 600px) {
       .grid { grid-template-columns: 1fr; }
-      .card { padding: 16px; }
-      .timeline .item { grid-template-columns: 70px 1fr; }
+      .card { padding: 18px; }
+      .timeline .item { grid-template-columns: 75px 1fr; }
     }
   </style>
 </head>
@@ -358,14 +378,15 @@
   <div class="hero">
     <div class="web-overlay"></div>
     
+    <!-- SVG de la Máscara de Spider-Man -->
     <svg class="spidey-icon" viewBox="0 0 100 100">
-      <path d="M 50 5 C 20 5 10 35 10 60 C 10 85 50 98 50 98 C 50 98 90 85 90 60 C 90 35 80 5 50 5 Z" fill="#e61c24" stroke="#0b0c10" stroke-width="4"/>
-      <path d="M 22 42 C 35 42 45 52 42 62 C 30 58 20 50 22 42 Z" fill="#ffffff" stroke="#0b0c10" stroke-width="3"/>
-      <path d="M 78 42 C 65 42 55 52 58 62 C 70 58 80 50 78 42 Z" fill="#ffffff" stroke="#0b0c10" stroke-width="3"/>
+      <path d="M 50 5 C 20 5 10 35 10 60 C 10 85 50 98 50 98 C 50 98 90 85 90 60 C 90 35 80 5 50 5 Z" fill="#ff003c" stroke="#08090d" stroke-width="4"/>
+      <path d="M 22 42 C 35 42 45 52 42 62 C 30 58 20 50 22 42 Z" fill="#ffffff" stroke="#08090d" stroke-width="3"/>
+      <path d="M 78 42 C 65 42 55 52 58 62 C 70 58 80 50 78 42 Z" fill="#ffffff" stroke="#08090d" stroke-width="3"/>
     </svg>
 
-    <span class="badge">🕷️ Misión Especial 🕸️</span>
-    <h1>HOCES<br>POLFA</h1>
+    <span class="badge">🕷️ Misión Multiverso 🕸️</span>
+    <h1>ERAK Y ARBAK</h1>
     <div class="subtitle">¡Un gran poder conlleva una gran fiesta!</div>
     
     <a class="btn yellow" href="#video">VER INVITACIÓN ↓</a>
@@ -380,17 +401,17 @@
         <source src="invitacion.mp4" type="video/mp4">
         Tu navegador no soporta el formato de video.
       </video>
-      <div style="text-align: center; margin-top: 15px;">
+      <div style="text-align: center; margin-top: 18px;">
         <button class="red" onclick="toggleSound(this)">🔊 ACTIVAR SONIDO</button>
       </div>
     </section>
 
-    <!-- DATOS DEL EVENTO -->
+    <!-- SECCIÓN DATOS DEL EVENTO -->
     <section class="card">
-      <div class="section-title">🕸️ Coordenadas</div>
+      <div class="section-title">🕸️ Coordenadas Secretas</div>
       <div class="grid">
         <div class="info">
-          <b>FECHA</b>
+          <b>FECHA DE LA MISIÓN</b>
           <strong>14 de Octubre</strong>
         </div>
         <div class="info">
@@ -398,16 +419,16 @@
           <strong>4:00 p. m.</strong>
         </div>
         <div class="info">
-          <b>LUGAR DE REUNIÓN</b>
+          <b>PUNTO DE REUNIÓN</b>
           <strong>Salón Los Encinos</strong>
         </div>
         <div class="info">
-          <b>UBICACIÓN</b>
+          <b>UBICACIÓN DE CUARTEL</b>
           <strong>Coacalco, Edo. Méx.</strong>
         </div>
       </div>
 
-      <!-- CUENTA REGRESIVA -->
+      <!-- Cuenta Regresiva -->
       <div class="countdown-container">
         <div class="cd-box"><span id="days">00</span><label>Días</label></div>
         <div class="cd-box"><span id="hours">00</span><label>Horas</label></div>
@@ -416,52 +437,52 @@
       </div>
     </section>
 
-    <!-- CRONOGRAMA -->
+    <!-- PROGRAMA DEL EVENTO -->
     <section class="card">
-      <div class="section-title">💥 Cronograma de la Misión</div>
+      <div class="section-title">💥 Cronograma de Acción</div>
       <div class="timeline">
         <div class="item">
           <div class="time">4:00</div>
-          <div class="desc">Llegada de superhéroes e invitados</div>
+          <div class="desc">Arribo de héroes y aliados</div>
         </div>
         <div class="item">
           <div class="time">4:30</div>
-          <div class="desc">Bienvenida e inicio de la aventura</div>
+          <div class="desc">Bienvenida e inicio del entrenamiento</div>
         </div>
         <div class="item">
           <div class="time">5:00</div>
-          <div class="desc">Banquete y entrenamiento de juegos</div>
+          <div class="desc">Banquete superheroico y juegos</div>
         </div>
         <div class="item">
           <div class="time">6:30</div>
-          <div class="desc">Música, baile y convivencia spider</div>
+          <div class="desc">Música, baile y fiesta Spider-Verse</div>
         </div>
         <div class="item">
           <div class="time">8:00</div>
-          <div class="desc">Sorpresas especiales</div>
+          <div class="desc">Sorpresas interdimensionales</div>
         </div>
         <div class="item">
           <div class="time">9:00</div>
-          <div class="desc">Pastel superheroico</div>
+          <div class="desc">Momento del pastel</div>
         </div>
       </div>
     </section>
 
-    <!-- GALERÍA -->
+    <!-- SECCIÓN CÓMIC -->
     <section class="card">
-      <div class="section-title">📸 Galería Cómic</div>
+      <div class="section-title">📸 Galería Spider-Verse</div>
       <div class="comic">
         <span class="bubble">¡SÚPER!</span>
-        <img src="referencia.jpg" alt="Diseño Spider-Man">
-        <h2 style="margin: 10px 0 0 0; text-align: center; font-family: 'Impact', sans-serif;">¡Prepárate para la Aventura!</h2>
+        <img src="referencia.jpg" alt="Diseño Spider-Man ERAK Y ARBAK">
+        <h2 style="margin: 12px 0 0 0; text-align: center; font-family: 'Impact', sans-serif; font-size: 1.8rem;">¡Prepárense para la Aventura!</h2>
       </div>
     </section>
 
-    <!-- CONFIRMACIÓN -->
+    <!-- CONFIRMACIÓN DE ASISTENCIA -->
     <section class="card">
       <div class="section-title">✅ Confirma tu Asistencia</div>
       <div class="rsvp">
-        <button class="red" onclick="rsvp('¡SÍ, ASISTIRÉ A LA MISIÓN!')">🕷️ ¡SÍ, ALLÁ ESTARÉ!</button>
+        <button class="red" onclick="rsvp('¡SÍ, ME UNIRÉ A LA MISIÓN!')">🕷️ ¡SÍ, ALLÁ ESTARÉ!</button>
         <button class="blue" onclick="rsvp('NO PODRÉ ASISTIR')">😢 NO PODRÉ ASISTIR</button>
       </div>
       <div class="result" id="result"></div>
@@ -470,7 +491,7 @@
   </main>
 
   <footer>
-    HOCES POLFA · Invitación Oficial Edición Spider-Verse 🕷️
+    ERAK Y ARBAK · Invitación Oficial Spider-Verse 🕷️
   </footer>
 
   <script>
@@ -487,7 +508,7 @@
       b.textContent = v.muted ? '🔊 ACTIVAR SONIDO' : '🔇 SILENCIAR';
     }
 
-    // Cuenta regresiva
+    // Cuenta Regresiva
     const eventDate = new Date("Oct 14, 2026 16:00:00").getTime();
     setInterval(function() {
       const now = new Date().getTime();
